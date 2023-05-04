@@ -21,7 +21,7 @@ export class AuthService {
     console.log(response.data);
   })
   .catch(error => {
-    console.log(error);
+    console.log("Cannot find server");
   });
 
   
