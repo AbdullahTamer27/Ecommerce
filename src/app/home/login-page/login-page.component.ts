@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup,FormArray,FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
@@ -15,7 +16,7 @@ export class LoginPageComponent {
   showLoginForm = true;
   loggedin = true;
 
-constructor(fb:FormBuilder ,private auth:AuthService) {
+constructor(fb:FormBuilder ,private auth:AuthService, private router:Router) {
   
 
   this.Loginform = fb.group({
@@ -40,6 +41,7 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
 
   Login(form:any){
     this.auth.login(form);
+    this.router.navigate(['/home']);
   }
 
 

@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
+
+
+import { Location } from '@angular/common';
 
 import axios from 'axios';
 
@@ -9,48 +12,46 @@ import axios from 'axios';
 })
 export class AuthService {
 
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+
   user: any;
 
-  constructor(private router: Router) { 
-
-    private userSubject = new BehaviorSubject<any>(null);
-    user$ = this.userSubject.asObservable();
-
-    // Check if the user is already logged in
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      this.userSubject.next(user);
-    }
+  constructor(private router: Router, private location: Location) { 
 
   }
 
   login(form:any){
-    
+
     axios.post('http://localhost:4000/login', form.value ,{
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
-  })
+    })
     .then(response => {
 
-      this.router.navigate("/home");
-      this.userSubject.next(response.data);
-      localStorage.setItem('user', JSON.stringify(response.data));
-    
+      //if something happen check here!!!!!!
+      this.user = response.data;
+      this.getLoggedInName.emit(this.user);
+      
     })
     .catch(error => {
       alert("Invalid username or password!");
     });
+
+  /* Local Storage Code
+  localStorage.setItem("userKey", JSON.stringify(this.user));
+  this.router.navigate(['/home']);
+*/
   }
 
   logout(){
-
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
-    this.router.navigate(['/login']);
-  
+    this.user = null;
+    this.getLoggedInName.emit(this.user);
 
   }
+
+
+
   signup(form:any){
     axios.post('http://localhost:4000/', form.value ,{
       headers: {
@@ -59,7 +60,7 @@ export class AuthService {
   })
     .then(response => {
       this.user = response.data;
-      console.log(response);
+      this.getLoggedInName.emit(this.user);
     })
     .catch(error => {
       console.log(error);

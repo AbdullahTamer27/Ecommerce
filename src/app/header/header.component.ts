@@ -9,8 +9,6 @@ import UserAvatar20 from 'node_modules/@carbon/icons/es/user--avatar/20.js';
 // @ts-ignore
 import ShoppingCart20 from 'node_modules/@carbon/icons/es/shopping--cart/20.js';
 
-
-
 import { AuthService } from '../services/auth/auth.service';
 
 
@@ -25,15 +23,16 @@ export class HeaderComponent {
   userData: any;
 
   constructor(protected iconService: IconService, private authService: AuthService) {
+    /*
+    let userString = localStorage.getItem('userKey');
+    if(userString != null){
+      let userObject = JSON.parse(userString);
+      this.user = userObject;
+    }
+    */
 
-    this.authService.user$.subscribe(user => {
-      this.user = user;
-      if (user) {
-        this.userData = user.userData;
-      } else {
-        this.userData = null;
-      }
-    });
+    this.authService.getLoggedInName.subscribe(user =>  this.user=user);
+    
   }
 
   @HostBinding('class.cds--header') headerClass = true;
@@ -43,10 +42,7 @@ export class HeaderComponent {
   }
 
   logOut() {
-
     this.authService.logout();
-  
-    
   }
 }
 
