@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 ## Installing Dependencies
-Run 'npm intall' in the terminal when you first open the angular project to install all dependencies for project to work
+Run `npm intall` in the terminal when you first open the angular project to install all dependencies for project to work
 
 ## Development server
 
