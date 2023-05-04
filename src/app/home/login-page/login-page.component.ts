@@ -28,7 +28,6 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
     LastName:['',[Validators.required],[]],
     Email:['',[Validators.required],[]],
     Password:['',[Validators.required],[]],
-    Gender:['',[],[]],
     Type:['',[Validators.required],[]]
   })
 
@@ -36,8 +35,7 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
 
 
   SignUp(form:any){
-    
-  
+    this.auth.signup(form);
   }
 
   Login(form:any){
