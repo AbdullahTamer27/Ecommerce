@@ -8,11 +8,6 @@ import { HomeModule } from './home/home.module';
 
 
 
-//firebase
-import { firebaseConfig } from 'src/environments/firebaseConfig';
-import { initializeApp } from 'firebase/app';
-
-
 
 
 //services
@@ -54,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppModule {
   constructor(){
-    const app = initializeApp(firebaseConfig);
+
     
   }
  }

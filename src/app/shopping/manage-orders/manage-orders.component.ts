@@ -29,16 +29,14 @@ export class ManageOrdersComponent {
   }
   
   getProducts() {
-    this.http.get("assets/database.json").subscribe(response => {
-      console.log(response);
-    })
-    
+
   }
 
 
   edit(productId:number){
       this.route.navigate(['shopping/new',productId]);
   }
+  
   delete(productId:number){
     
   }

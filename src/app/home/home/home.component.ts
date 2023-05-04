@@ -20,35 +20,25 @@ export class HomeComponent {
 
 }
 getCategories(){
-  this.categoryService.getAll().subscribe((value: any) => {
-    const data = value as { [key: string]: any };
-    this.categories = Object.entries(data).map(([key, value]) => ({ key, ...value }));
-  });
+
 }
 
 getProducts(){
-  this.productService.getAll().subscribe((value:any)=>{
-    const data = value as { [key: string]: any };
-    this.products= Object.entries(data).map(([key, value]) => ({ key, ...value }));
-  })
+
 }
 
 sort(category:string){
 
-  console.log(category);
 
 }
 
 addItemToCart(product:any){
-
-  this.cartService.addItemToCart(product);
 
 }
 
 view(productId:any){
 
   this.route.navigate(['shopping/product',productId]);
-
 }
 
 }

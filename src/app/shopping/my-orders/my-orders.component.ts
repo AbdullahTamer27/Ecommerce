@@ -12,6 +12,7 @@ export class MyOrdersComponent {
 
 
   orders: Product[] = [];
+  
   constructor(private productsService:ProductService, private route:Router, ){
     this.orders = [
       { id: 1, title: 'Product 1', price: 10 },

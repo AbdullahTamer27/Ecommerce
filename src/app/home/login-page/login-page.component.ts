@@ -37,12 +37,11 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
 
   SignUp(form:any){
     
-    this.auth.signup(form);
   
   }
 
   Login(form:any){
-    this.auth.login(form);
+    
   }
 
 

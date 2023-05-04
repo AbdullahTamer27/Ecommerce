@@ -23,10 +23,7 @@ export class NewOrderComponent {
   
 
   getCategories() {
-    this.categoryService.getAll().subscribe((value: any) => {
-      const data = value as { [key: string]: any };
-      this.categories = Object.entries(data).map(([key, value]) => ({ key, ...value }));
-    });
+
   }
 
   save(product:any){
@@ -36,7 +33,7 @@ export class NewOrderComponent {
 
   }
   try(){
-    console.log(this.categories);
+    
   }
 
 

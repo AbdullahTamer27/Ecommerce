@@ -16,6 +16,7 @@ import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { AuthService } from '../services/auth/auth.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -26,19 +27,7 @@ export class HeaderComponent {
   userData: any;
 
   constructor(protected iconService: IconService, private authService: AuthService) {
-    const auth = getAuth();
-    auth.onAuthStateChanged((user) => {
-      this.user = user;
-      if (user) {
-        const database = getDatabase();
-        const userDataRef = ref(database, `users/${user.uid}`);
-        onValue(userDataRef, (snapshot) => {
-          this.userData = snapshot.val();
-        });
-      } else {
-        this.userData = null;
-      }
-    });
+
   }
 
   @HostBinding('class.cds--header') headerClass = true;
@@ -48,7 +37,7 @@ export class HeaderComponent {
   }
 
   logOut() {
-    this.authService.logout();
+    
   }
 }
 

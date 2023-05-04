@@ -15,19 +15,7 @@ export class CartService {
   userData: any;
 
   constructor(private authService: AuthService) {
-    const auth = getAuth();
-    auth.onAuthStateChanged((user) => {
-      this.user = user;
-      if (user) {
-        const database = getDatabase();
-        const userDataRef = ref(database, `users/${user.uid}`);
-        onValue(userDataRef, (snapshot) => {
-          this.userData = snapshot.val();
-        });
-      } else {
-        this.userData = null;
-      }
-    });
+
     
   }
   private loadCartItems() {
@@ -37,15 +25,7 @@ export class CartService {
   }
 
   addItemToCart(item: any) {
-    // Get a reference to the user's cart
-    const userId = this.user.uid;
-    const cartRef = ref(this.db, `carts/${userId}/products`);
-  
-    push(cartRef, { product: item, quantity: 1 }).then(() => {
-      console.log('Item added to cart');
-    }).catch((error) => {
-      console.error('Error adding item to cart:', error);
-    });
+    
   }
   
   
