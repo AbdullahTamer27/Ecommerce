@@ -1,0 +1,35 @@
+<ibm-header  name="E-Commerce">
+  <ibm-header-navigation ariaLabel="Carbon Tutorial Angular">
+    <ibm-header-item [route]="['home']" >Home</ibm-header-item>
+    <ng-container *ngIf="!user">
+      <ibm-header-item [route]="['login']" >Login</ibm-header-item>
+    </ng-container>
+    <ng-container *ngIf="user">
+      <ibm-header-item [route]="['shopping']" >Cart</ibm-header-item>
+    </ng-container>
+  <ng-container *ngIf="userData?.isAdmin==='true'">
+    <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
+  </ng-container>
+    <ng-container *ngIf="user">
+     <ibm-header-menu [title]="userData?.name">
+       <ibm-header-item [route]="['shopping/my-orders']" >My Orders</ibm-header-item>
+       <ibm-header-item [route]="['shopping/manage-orders']" >Manage Orders</ibm-header-item>
+       <ibm-header-item [route]="['myAccount']" >My Account</ibm-header-item>
+       <ibm-header-item [route]="['/']" (click)="logOut()" >Logout</ibm-header-item>
+      </ibm-header-menu>
+    </ng-container>
+  </ibm-header-navigation>
+  <ibm-header-global>
+    <ibm-header-action title="action">
+      <svg ibmIcon="search" size="20">
+        
+      </svg>
+    </ibm-header-action>
+    <ibm-header-action title="action">
+      <svg ibmIcon="user--avatar" size="20"></svg>
+    </ibm-header-action>
+    <ibm-header-action title="action">
+      <svg ibmIcon="shopping--cart" size="20"></svg>
+    </ibm-header-action>
+  </ibm-header-global>
+</ibm-header>

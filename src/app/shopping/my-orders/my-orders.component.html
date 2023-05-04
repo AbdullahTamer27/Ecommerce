@@ -1,0 +1,84 @@
+<br>
+<br>
+<div class="row">
+    <h1 class="page-heading">My Orders</h1>
+    <p class="page-text">In this Section you can see all the Orders you ordered from Our Website</p>
+</div>
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-10">
+        <p>
+          <button type="button" class="btn cube cube-hover" routerLink="/home">
+            <div class="bg-top">
+            <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+            <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+            <div class="bg-inner"></div>
+            </div>
+            <div class="text">Make A New Order</div>
+          </button>
+        </p>
+        <div *ngIf="orders.length===0">
+            <p class="page-text-empty">Your Orders Will Appear Here</p>
+
+
+        <table class="rwd-table">
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Rate</th>x
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="orders.length > 0">
+        <table class="rwd-table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Your Rate</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of orders">
+              <td>{{o.id}}</td>
+              <td></td>
+              <td>
+
+                <button class="btn btn-danger" (click)="view(o.id)">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+        
+    </div>
+
+</div>
+
+
+  
+  
+  
+  

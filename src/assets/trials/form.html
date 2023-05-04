@@ -1,0 +1,46 @@
+<form [formGroup]="form"  id="myForm">
+    <div ibmRow class="landing-page__r2">
+      <div ibmCol class="cds--no-gutter">
+            <div ibmGrid class="cds--grid--no-gutter cds--grid--full-width">
+              <div ibmRow class="landing-page__tab-content">
+                <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
+                  <div class="form-group">
+                    <ibm-label  helperText="Required">Username
+                      <input class="form-control" formControlName="username" ibmText required>                                
+                    </ibm-label>
+                    <div *ngIf="username?.touched && username?.invalid" class="alert alert-danger">
+                        <div *ngIf="username?.getError('required')">
+                          <ibm-notification [notificationObj]="{
+                            type: 'error',
+                            title: 'Error',
+                            message: 'Username Field is Required'
+                            }"></ibm-notification>
+                        </div>
+                      </div> 
+                  </div>                                     
+                </div>
+                <div ibmCol class="cds--offset-lg-1" [columnNumbers]="{'md': 6, 'lg': 6}">
+                  <div class="form-group">
+                   <ibm-label  helperText="Required">Password
+                     <input class="form-control" formControlName="oldPass" ibmText required>
+                     </ibm-label>
+                     <div *ngIf="oldPass?.touched && oldPass?.invalid" class="alert alert-danger">
+                      <div *ngIf="oldPass?.getError('required')">
+                        <ibm-notification [notificationObj]="{
+                          type: 'error',
+                          title: 'Error',
+                          message: 'Password Field is Required'
+                          }">
+                        </ibm-notification>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>    
+    </div>
+    <div>
+      <button ibmButton="primary" (click)="submit(form)">Submit</button>
+    </div> 
+  </form>
