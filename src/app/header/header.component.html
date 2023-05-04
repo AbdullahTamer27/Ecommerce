@@ -1,17 +1,17 @@
 <ibm-header  name="E-Commerce">
   <ibm-header-navigation ariaLabel="Carbon Tutorial Angular">
     <ibm-header-item [route]="['home']" >Home</ibm-header-item>
-    <ng-container *ngIf="!user">
+    <ng-container >
       <ibm-header-item [route]="['login']" >Login</ibm-header-item>
     </ng-container>
-    <ng-container *ngIf="user">
+    <ng-container >
       <ibm-header-item [route]="['shopping']" >Cart</ibm-header-item>
     </ng-container>
-  <ng-container *ngIf="userData?.isAdmin==='true'">
+  <ng-container >
     <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
   </ng-container>
-    <ng-container *ngIf="user">
-     <ibm-header-menu [title]="userData?.name">
+    <ng-container >
+     <ibm-header-menu title="Name Displays Here">
        <ibm-header-item [route]="['shopping/my-orders']" >My Orders</ibm-header-item>
        <ibm-header-item [route]="['shopping/manage-orders']" >Manage Orders</ibm-header-item>
        <ibm-header-item [route]="['myAccount']" >My Account</ibm-header-item>

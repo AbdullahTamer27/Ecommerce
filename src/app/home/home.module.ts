@@ -33,4 +33,6 @@ import { HomeComponent } from './home/home.component';
 
   ]
 })
-export class HomeModule { }
+export class HomeModule {
+  
+ }
