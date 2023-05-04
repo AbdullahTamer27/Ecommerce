@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, User } from 'firebase/auth';
-import { getDatabase, ref, onValue, set, push, update } from 'firebase/database';
+
+import axios from 'axios';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,15 @@ export class AuthService {
   }
 
   login(form:any){
+
+  axios.get('http://localhost:3000/api/data')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
   
   }
 

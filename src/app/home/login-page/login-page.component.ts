@@ -41,7 +41,7 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
   }
 
   Login(form:any){
-    
+    this.auth.login(form);
   }
 
 
