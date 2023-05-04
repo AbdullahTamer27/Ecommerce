@@ -15,15 +15,19 @@ export class AuthService {
   }
 
   login(form:any){
+    
 
-  axios.get('http://localhost:3000/api/data')
-  .then(response => {
-    console.log(response.data);
+    axios.post('http://localhost:4000/login', form.value ,{
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
   })
-  .catch(error => {
-    console.log("Cannot find server");
-  });
-
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
   
   }
 
