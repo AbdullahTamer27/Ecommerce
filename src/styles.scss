@@ -3,6 +3,11 @@
 @import './assets/scss/carbon-overrides.scss';
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('/src/assets/fonts/Vina_Sans-2/VinaSans-Regular.ttf') format('truetype');
+}
+
 $feature-flags: (
   grid-columns-16: true
 );

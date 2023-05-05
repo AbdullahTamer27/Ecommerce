@@ -3,10 +3,12 @@
 <br>
 <br>
 <br>
+
 <div class="row" >
     <h1 class="heading">Store.</h1>
     <h1 class="subheading">The best way to buy the products you love.</h1>
 </div>
+
 <div class="row">
     <div class="mylist">
         <div  *ngFor="let c of categories">
@@ -20,24 +22,24 @@
     </div>
     <div class="col-md-10">
         <div class="row">
-    <ng-container *ngFor="let p of products;let i = index">
-        <div class="col-md-3">
-            <div class="card" >
-                <div class="imgbox" (click)="view(p.id)">
-                    <div class="img" >
-                        <img [src]="p.imageurl">
+            <ng-container *ngFor="let p of products;let i = index">
+                <div class="col-md-3">
+                    <div class="card" >
+                        <div class="imgbox" (click)="view(p.id)">
+                            <div class="img" >
+                                <img [src]="p.imageurl">
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h2 class="title">{{p.title}}</h2>
+                            <span class="caption">{{p.price | currency:'USD'}}</span>
+                            <button class="btn btn-warning" (click)="addItemToCart(p)">add to cart</button>
+                        </div>
                     </div>
                 </div>
-                <div class="details">
-                    <h2 class="title">{{p.title}}</h2>
-                    <span class="caption">{{p.price | currency:'USD'}}</span>
-                    <button class="btn btn-warning" (click)="addItemToCart(p)">add to cart</button>
-                </div>
-            </div>
+                <div *ngIf="(i+1)%4===0" class="w-100"></div>
+            </ng-container>
         </div>
-        <div *ngIf="(i+1)%4===0" class="w-100"></div>
-    </ng-container>
-</div>
     </div>
     <div class="col-md-1">
         

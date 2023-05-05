@@ -2,85 +2,83 @@
 <div ibmGrid class="cds--grid--full-width landing-page">
     <div ibmRow class="landing-page__banner">
         <div ibmCol [columnNumbers]="{'lg': 16}">
-          <ibm-breadcrumb >
+          <ibm-breadcrumb>
             <ibm-breadcrumb-item class="mytext"> Getting started </ibm-breadcrumb-item>
           </ibm-breadcrumb>
-          <h1 class="landing-page__heading" class="mytext" bold>Sign In to Your Account</h1>
+          <h1 class="landing-page__heading" class="mytext" >Sign In to Your Account</h1>
         </div>
         
     </div>
     <div ibmRow class="landing-page__r2">
       <div ibmCol class="cds--no-gutter">
-    <ibm-tabs class="Tabs">
-     
-      <ibm-tab class="mytab" heading="Login" class="mytext">
-        <div class="LoginForm">
-          <form [formGroup]="Loginform"  id="Loginform" method="POST">
-            <div class="container">
-              <div class="card">
-                <a class="singup" >Login</a>
-                
+        <ibm-tabs class="Tabs">  
+          <ibm-tab class="mytab" heading="Login" class="mytext">
+            <div class="LoginForm">
+              <form [formGroup]="Loginform"  id="Loginform" method="POST">
+                <div class="container"> 
+                  <div class="card">
+                    <a class="singup" >Login</a>
+                    
+                    <div class="form-group">
+                      <div class="inputBox" >
+                        <input type="text" required class="form-control" formControlName="Username">
+                        <span class="user">Username</span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="inputBox"  >
+                        <input class="form-control" formControlName="Password" type="password" required>
+                        <span>Password</span>
+                      </div>
+                    </div>
+                    <button class="enter" [disabled]="!Loginform.valid" (click)="Login(Loginform)">Enter</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ibm-tab>
+          
+        <ibm-tab class="mytab" heading="Signup" class="LoginForm" >
+          <div class="RegisterForm">        
+            <form [formGroup]="RegisterForm" id="RegisterForm" method="POST">
+              <div class="container">
+                <div class="card">
+                  <a class="singup">Sign Up</a>
+
                 <div class="form-group">
-                  <div class="inputBox" >
-                    <input type="text" required="required" class="form-control" formControlName="Username">
-                    <span class="user">Username</span>
+                  <div class="inputBox1">
+                    <input type="text" required="required" class="form-control" formControlName="FirstName">
+                    <span class="user">First Name</span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="inputBox"  >
-                    <input class="form-control" formControlName="Password" type="password" required="required">
-                    <span>Password</span>
+                  <div class="inputBox1">
+                    <input type="text" required="required" class="form-control" formControlName="LastName">
+                    <span class="user">Last Name</span>
                   </div>
+                </div>   
+              <div class="form-group"> 
+                <div class="inputBox">
+                  <input type="text" required="required" class="form-control" formControlName="Email">
+                  <span>Email</span>
                 </div>
-                      <button class="enter" [disabled]="!Loginform.valid" (click)="Login(Loginform)">Enter</button>
               </div>
-            </div>
-          </form>
-        </div>
-      </ibm-tab>
-      
-    <ibm-tab class="mytab" heading="Signup" class="LoginForm" >
-
-      <div class="RegisterForm">        
-        <form [formGroup]="RegisterForm" id="RegisterForm" method="POST">
-          <div class="container">
-            <div class="card">
-              <a class="singup">Sign Up</a>
-
-            <div class="form-group">
-              <div class="inputBox1">
-                <input type="text" required="required" class="form-control" formControlName="FirstName">
-                <span class="user">First Name</span>
+              <div class="form-group">
+                <div class="inputBox">
+                  <input type="password" required="required" class="form-control" formControlName="Password">
+                  <span>Password</span>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="inputBox1">
-                <input type="text" required="required" class="form-control" formControlName="LastName">
-                <span class="user">Last Name</span>
-              </div>
-            </div>   
-          <div class="form-group"> 
-            <div class="inputBox">
-              <input type="text" required="required" class="form-control" formControlName="Email">
-              <span>Email</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="inputBox">
-              <input type="password" required="required" class="form-control" formControlName="Password">
-              <span>Password</span>
-            </div>
-          </div>
-      
-            <button [disabled]="!RegisterForm.valid" class="enter" (click)="SignUp(RegisterForm)">Submit</button>
-                            
-            </div>
+          
+                <button [disabled]="!RegisterForm.valid" class="enter" (click)="SignUp(RegisterForm)">Submit</button>
+                                
+                </div>
+              </div> 
+            </form>
           </div> 
-        </form>
-      </div> 
 
-    </ibm-tab>
-    </ibm-tabs>
+        </ibm-tab>
+        </ibm-tabs>
       </div>
     </div>
     </div>

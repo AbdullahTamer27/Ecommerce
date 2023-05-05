@@ -1,13 +1,29 @@
 
-
+.heading{
+  font-size: 6em;
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: rgb(206, 176, 78) 
+}
 .mytext{
-    padding-top: 60px;
-    padding-bottom: 10px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+.bottomtext{
+    padding-top: 100px;
     color: #fff;
     display: flex;
     justify-content: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 .main{
     display: flex;
     justify-content: center;
@@ -107,6 +123,14 @@
     background-color: black;
     top: 1em;
     left: 0.8em;
+  }
+
+  .title{
+    color:black;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    bottom: 0.2em;
   }
   
   .line2 {
