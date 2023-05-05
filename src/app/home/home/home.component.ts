@@ -22,47 +22,47 @@ export class HomeComponent {
   ImageUrl4 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR33MI1-veQn1JDxFJhwSysy9UuVMMAQ6EIOQ&usqp=CAU";
 
 
-  constructor(productService:ProductService, categoryService:CategoryService, private route:Router){
+    constructor(private productService:ProductService, categoryService:CategoryService, private route:Router){
 
-  this.products = [
-    { id: 1, title: 'Product 1', price: 10 , rate : 1 , imageurl:this.ImageUrl1},
-    { id: 2, title: 'Product 2', price: 20 , rate : 1, imageurl:this.ImageUrl2},
-    { id: 3, title: 'Product 3', price: 30 , rate : 1, imageurl:this.ImageUrl3},
-    { id: 4, title: 'Product 4', price: 34 , rate : 4, imageurl:this.ImageUrl4},
+    this.products = [
+      { id: 1, title: 'Product 1', price: 10 , rate : 1 , imageurl:this.ImageUrl1},
+      { id: 2, title: 'Product 2', price: 20 , rate : 1, imageurl:this.ImageUrl2},
+      { id: 3, title: 'Product 3', price: 30 , rate : 1, imageurl:this.ImageUrl3},
+      { id: 4, title: 'Product 4', price: 34 , rate : 4, imageurl:this.ImageUrl4},
 
-    { id: 5, title: 'Product 5', price: 24 , rate : 4, imageurl:this.ImageUrl3},
-  ];
+      { id: 5, title: 'Product 5', price: 24 , rate : 4, imageurl:this.ImageUrl3},
+    ];
 
-  this.categories = [
-    {name:"Electronics"},
-    {name:"Art"},
-    {name:"Music"},
-    {name:"Historical"}
-  ]
-}
+    this.categories = [
+      {name:"Electronics"},
+      {name:"Art"},
+      {name:"Music"},
+      {name:"Historical"}
+    ];
 
-
-getCategories(){
-
-}
-
-getProducts(){
-
-}
-
-sort(category:string){
+  }
 
 
-}
+  getCategories(){
 
-addItemToCart(product:any){
+  }
 
-}
+  getProducts(){
+    //this.products = this.productService.getAll();
+  }
 
-view(productId:any){
+  sort(category:string){
+    
+  }
 
-  this.route.navigate(['shopping/product',productId]);
-}
+  addItemToCart(product:any){
+
+  }
+
+  view(productId:any){
+    //this.productService.get(productId);
+    this.route.navigate(['shopping/product',productId]);
+  }
 
 }
 

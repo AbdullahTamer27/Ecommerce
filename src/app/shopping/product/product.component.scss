@@ -1,0 +1,240 @@
+.heading{
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 50px;
+    left: 0;
+    color: rgb(206, 176, 78) 
+  
+  }
+  hr{
+      border: none;
+			border-top: 1px solid #ccc;
+			margin: 1em 0;
+  }
+  .txt{
+    color: #fff; 
+  }
+  .imgContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .card {
+    width: 500px;
+    height: 500px;
+    background: rgb(255, 255, 255);
+    border-radius: 0.4em;
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: rgb(250, 250, 250) 0.2em solid;
+   
+   }
+   img{
+
+    float:left;
+    width:100%;
+    height:100%;
+    object-fit:fill;
+
+   }
+   
+   .card:hover {
+    border: #006fff 0.2em solid;
+   }
+
+
+
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    --stroke: #666;
+    --fill: #ffc73a;
+  }
+  
+  .rating input {
+    appearance: unset;
+  }
+  
+  .rating label {
+    cursor: pointer;
+  }
+  
+  .rating svg {
+    width: 3rem;
+    height: 3rem;
+    overflow: visible;
+    fill: transparent;
+    stroke: var(--stroke);
+    stroke-linejoin: bevel;
+    stroke-dasharray: 12;
+    animation: idle 4s linear infinite;
+    transition: stroke 0.2s, fill 0.5s;
+  }
+  
+  @keyframes idle {
+    from {
+      stroke-dashoffset: 24;
+    }
+  }
+  
+  .rating label:hover svg {
+    stroke: var(--fill);
+  }
+  
+  .rating input:checked ~ label svg {
+    transition: 0s;
+    animation: idle 4s linear infinite, yippee 0.75s backwards;
+    fill: var(--fill);
+    stroke: var(--fill);
+    stroke-opacity: 0;
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+  
+  @keyframes yippee {
+    0% {
+      transform: scale(1);
+      fill: var(--fill);
+      fill-opacity: 0;
+      stroke-opacity: 1;
+      stroke: var(--stroke);
+      stroke-dasharray: 10;
+      stroke-width: 1px;
+      stroke-linejoin: bevel;
+    }
+  
+    30% {
+      transform: scale(0);
+      fill: var(--fill);
+      fill-opacity: 0;
+      stroke-opacity: 1;
+      stroke: var(--stroke);
+      stroke-dasharray: 10;
+      stroke-width: 1px;
+      stroke-linejoin: bevel;
+    }
+  
+    30.1% {
+      stroke: var(--fill);
+      stroke-dasharray: 0;
+      stroke-linejoin: miter;
+      stroke-width: 8px;
+    }
+  
+    60% {
+      transform: scale(1.2);
+      fill: var(--fill);
+    }
+  }
+
+  .submitButton{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+
+  .btn {
+    display: block;
+    padding: 0.7em 1em;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: #d4af37;
+    letter-spacing: 0.1em;
+    font-family: monospace;
+    font-size: 17px;
+    font-weight: bold;
+    z-index: 1;
+   }
+   
+   .cube {
+    position: relative;
+    transition: all 0.5s;
+   }
+   
+   .cube .bg-top {
+    position: absolute;
+    height: 10px;
+    background: #d4af37;
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+    margin: 0;
+    transition: all 0.4s;
+   }
+   
+   .cube .bg-top .bg-inner {
+    bottom: 0;
+   }
+   
+   .cube .bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    background: #d4af37;
+    transition: all 0.4s;
+   }
+   
+   .cube .bg-right {
+    position: absolute;
+    background: #d4af37;
+    top: -5px;
+    z-index: 0;
+    bottom: 5px;
+    width: 10px;
+    left: 100%;
+    transform: skew(0, -45deg);
+    transition: all 0.4s;
+   }
+   
+   .cube .bg-right .bg-inner {
+    left: 0;
+   }
+   
+   .cube .bg-inner {
+    background: #28282d;
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+   }
+   
+   .cube .text {
+    position: relative;
+    transition: all 0.4s;
+   }
+   
+   .cube:hover .bg-inner {
+    background: #d4af37;
+    transition: all 0.4s;
+   }
+   
+   .cube:hover .text {
+    color: #28282d;
+    transition: all 0.4s;
+   }
+   
+   .cube:hover .bg-right,
+   .cube:hover .bg,
+   .cube:hover .bg-top {
+    background: #28282d;
+   }
+   
+   .cube:active {
+    z-index: 9999;
+    animation: bounce .1s linear;
+   }
+   
+   @keyframes bounce {
+    50% {
+     transform: scale(0.9);
+    }
+   }

@@ -32,6 +32,7 @@ export class AuthService {
       //if something happen check here!!!!!!
       this.user = response.data;
       this.getLoggedInName.emit(this.user);
+      this.router.navigate(['/home']);
       
     })
     .catch(error => {
@@ -61,9 +62,11 @@ export class AuthService {
     .then(response => {
       this.user = response.data;
       this.getLoggedInName.emit(this.user);
+      this.router.navigate(['/home']);
     })
     .catch(error => {
-      console.log(error);
+
+      alert("We Could not Sign You up please try again");
     });
     
   }

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { ProductService } from 'src/app/services/products/product.service';
 
 

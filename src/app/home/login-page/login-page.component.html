@@ -71,16 +71,6 @@
               <span>Password</span>
             </div>
           </div>
-          <div class="form-group">
-            <div class="inputBox">
-                <ibm-radio-group formControlName="Type" class="form-control" required>
-                  <ibm-radio value=false>True</ibm-radio>
-                  <ibm-radio value=true>False</ibm-radio>
-                </ibm-radio-group>
-                <span>IsAdmin</span>
-              
-            </div>
-          </div>
       
             <button [disabled]="!RegisterForm.valid" class="enter" (click)="SignUp(RegisterForm)">Submit</button>
                             

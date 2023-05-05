@@ -13,10 +13,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class LoginPageComponent {
   Loginform :FormGroup;
   RegisterForm :FormGroup;
-  showLoginForm = true;
-  loggedin = true;
 
-constructor(fb:FormBuilder ,private auth:AuthService, private router:Router) {
+constructor(fb:FormBuilder ,private auth:AuthService) {
   
 
   this.Loginform = fb.group({
@@ -41,7 +39,6 @@ constructor(fb:FormBuilder ,private auth:AuthService, private router:Router) {
 
   Login(form:any){
     this.auth.login(form);
-    this.router.navigate(['/home']);
   }
 
 
@@ -51,7 +48,7 @@ constructor(fb:FormBuilder ,private auth:AuthService, private router:Router) {
     return this.Loginform.get('Username');
   }
   get Password(){
-    return this.Loginform.get("Password")
+    return this.Loginform.get("Password");
   }
 
 }
