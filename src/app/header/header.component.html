@@ -4,9 +4,11 @@
     <ng-container *ngIf="!user">
       <ibm-header-item [route]="['login']" >Login</ibm-header-item>
     </ng-container>
+    <!-- Cart element
     <ng-container *ngIf="user">
       <ibm-header-item [route]="['shopping']" >Cart</ibm-header-item>
     </ng-container>
+  -->
   <ng-container >
     <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
   </ng-container>
@@ -20,16 +22,21 @@
     </ng-container>
   </ibm-header-navigation>
   <ibm-header-global>
-    <ibm-header-action title="action">
-      <svg ibmIcon="search" size="20">
-        
-      </svg>
+    <ng-container  *ngIf="isSearchActive">
+      <form [formGroup]="SearchForm" id="SearchForm" class="bx--header__search--form">
+        <input class="form-control" formControlName="search" id="header-search" class="bx--header__search--input" type="text" placeholder="Search" (keydown.enter)='search(SearchForm)'  required>
+      </form>
+    </ng-container>
+    <ibm-header-action title="action" (click)="toggleSearch()">
+      <svg ibmIcon="search" size="20"></svg>
     </ibm-header-action>
-    <ibm-header-action title="action">
-      <svg ibmIcon="user--avatar" size="20"></svg>
-    </ibm-header-action>
-    <ibm-header-action title="action">
-      <svg ibmIcon="shopping--cart" size="20"></svg>
-    </ibm-header-action>
+    <ng-container *ngIf="user">
+      <ibm-header-action title="action" [routerLink]="['shopping']">
+        <svg ibmIcon="shopping--cart" size="20"></svg>
+      </ibm-header-action>
+    </ng-container>
+
+    
+
   </ibm-header-global>
 </ibm-header>

@@ -14,6 +14,14 @@
   .txt{
     color: #fff; 
   }
+  .productPrice{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 25px;
+    left: 0;
+    color: rgb(206, 176, 78) 
+
+  }
   .imgContainer{
     display: flex;
     justify-content: center;
@@ -39,7 +47,7 @@
    }
    
    .card:hover {
-    border: #006fff 0.2em solid;
+    border: #d4af37 0.2em solid;
    }
 
 

@@ -17,7 +17,7 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 //carbon components
 import { UIShellModule, IconModule, DropdownModule } from 'carbon-components-angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './services/products/product.service';
 import { CategoryService } from './services/category/category.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeModule,
     DropdownModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
     
   ],
