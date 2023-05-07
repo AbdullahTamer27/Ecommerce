@@ -36,6 +36,7 @@ export class ProductService {
       }
     })
     .then(response => {
+      return response.data;
 
     })
     .catch(error => {
@@ -58,7 +59,7 @@ export class ProductService {
       }
     })
     .then(response => {
-      return response;
+      return response.data;
       
     })
     .catch(error => {
@@ -102,8 +103,7 @@ export class ProductService {
       }
     })
     .then(response => {
-
-      
+      return response.data;
     })
     .catch(error => {
 
@@ -117,6 +117,23 @@ export class ProductService {
     
   }
   search(form:any){
+    axios.post('http://localhost:4000/login',{
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(response => {
+
+      
+    })
+    .catch(error => {
+
+    });
+
+  /* Local Storage Code
+  localStorage.setItem("userKey", JSON.stringify(this.user));
+  this.router.navigate(['/home']);
+*/
     
   }
 }

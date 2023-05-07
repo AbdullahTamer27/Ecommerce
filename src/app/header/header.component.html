@@ -4,16 +4,16 @@
     <ng-container *ngIf="!user">
       <ibm-header-item [route]="['login']" >Login</ibm-header-item>
     </ng-container>
-    <!-- Cart element
+
     <ng-container *ngIf="user">
       <ibm-header-item [route]="['shopping']" >Cart</ibm-header-item>
     </ng-container>
-  -->
-  <ng-container >
+ 
+  <ng-container>
     <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
   </ng-container>
-    <ng-container *ngIf="user">
-     <ibm-header-menu [title]="user.firstName">
+    <ng-container >
+     <ibm-header-menu title="User Name">
        <ibm-header-item [route]="['shopping/my-orders']" >My Orders</ibm-header-item>
        <ibm-header-item [route]="['shopping/manage-orders']" >Manage Orders</ibm-header-item>
        <ibm-header-item [route]="['myAccount']" >My Account</ibm-header-item>

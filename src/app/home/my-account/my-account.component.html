@@ -1,0 +1,91 @@
+<br>
+<br>
+
+<div class="container  mt-5 mb-5" >
+    <div class="box">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <span class="font-weight-bold">{{user.firstname + ' '+ user.lastname}}</span>
+                <span>{{user.email}}</span><span> </span></div>
+        </div>
+        <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+            <form [formGroup]="UpdateForm"  id="UpdateForm" method="POST">
+                <div class="row mt-2">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="labels" >First Name</label>
+                            <input class="form-control" formControlName="firstname" type="text" class="form-control" [placeholder]="user.firstname" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="labels">Last Name</label>
+                            <input class="form-control" formControlName="lastname" type="text" class="form-control"  [placeholder]="user.lastname">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label>
+                            <input type="text" class="form-control" [placeholder]="user.mobilenumber" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12"><label class="labels">Address</label>
+                            <input class="form-control" formControlName="address" type="text" class="form-control" [placeholder]="user.address" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12"><label class="labels">Country</label>
+                            <input class="form-control" formControlName="country" type="text" class="form-control" [placeholder]="user.country" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12"><label class="labels">Email</label>
+                            <input class="form-control" formControlName="email" type="text" class="form-control" [placeholder]="user.email" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn cube cube-hover" routerLink="/home" (click)="submit(UpdateForm)">
+                            <div class="bg-top">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="bg-right">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="bg">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="text">Save</div>
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn cube cube-hover" (click)="delete()" >
+                            <div class="bg-top">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="bg-right">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="bg">
+                            <div class="bg-inner"></div>
+                            </div>
+                            <div class="text">Delete Account</div>
+                        </button>
+                    </div>
+                </div>  
+            </form>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

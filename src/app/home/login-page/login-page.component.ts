@@ -26,7 +26,9 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
     LastName:['',[Validators.required],[]],
     Email:['',[Validators.required],[]],
     Password:['',[Validators.required],[]],
-    Type:['',[Validators.required],[]]
+    country:['',[Validators.required],[]],
+    address:['',[Validators.required],[]],
+    mobilenumber:['',[Validators.required],[]],
   })
 
  } 
@@ -44,7 +46,7 @@ constructor(fb:FormBuilder ,private auth:AuthService) {
 
 
   get Username(){
-    return this.Loginform.get('Username');
+    return this.Loginform.get('username');
   }
   get Password(){
     return this.Loginform.get("Password");
