@@ -21,12 +21,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './services/products/product.service';
 import { CategoryService } from './services/category/category.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

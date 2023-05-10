@@ -18,7 +18,13 @@ export interface Product {
 
 export class ManageOrdersComponent {
   
-  products: any = [];
+  products = [
+    { id: 1, title: 'Product 1', price: 10 , rate : 1 },
+    { id: 2, title: 'Product 2', price: 20 , rate : 1},
+    { id: 3, title: 'Product 3', price: 30 , rate : 1},
+    { id: 4, title: 'Product 4', price: 34 , rate : 4},
+    { id: 5, title: 'Product 5', price: 24 , rate : 4},
+  ];
   
 
   constructor(private productsService:ProductService, private route:Router ,private http:HttpClient){
@@ -37,6 +43,7 @@ export class ManageOrdersComponent {
   }
   
   delete(productId:number){
+    
     
   }
   

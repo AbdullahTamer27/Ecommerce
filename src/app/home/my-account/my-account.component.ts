@@ -36,4 +36,7 @@ export class MyAccountComponent {
   delete(){
 
   }
+  generateReports(){
+    
+  }
 }

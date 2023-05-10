@@ -1,0 +1,70 @@
+<br>
+<br>
+<br>
+<br>
+<div ibmGrid class="cds--grid--full-width landing-page">
+    <div ibmRow class="landing-page__banner">
+        <div ibmCol [columnNumbers]="{'lg': 16}">
+          <h1 class="landing-page__heading" class="mytext" >Hey Admin</h1>
+        </div>
+        
+    </div>
+    <div ibmRow class="landing-page__r2">
+      <div ibmCol class="cds--no-gutter">
+        <ibm-tabs class="Tabs">  
+            <ibm-tab class="mytab" heading="Manage Users" class="mytext" >
+                <table class="rwd-table">
+                    <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+
+                <button class="btn btn-primary" (click)="editUser()">Edit</button>
+                <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+            </ibm-tab>
+          
+            <ibm-tab class="mytab" heading="Manage Products"  >
+                <table class="rwd-table">
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Rate</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let p of products">
+                        <td>{{ p.title }}</td>
+                        <td>{{ p.price }}</td>
+                        <td>{{ p.rate }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </ibm-tab>
+        </ibm-tabs>
+      </div>
+    </div>
+    </div>
+
+    <div ibmRow class="landing-page__r3">
+      
+    </div>

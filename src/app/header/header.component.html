@@ -4,10 +4,6 @@
     <ng-container *ngIf="!user">
       <ibm-header-item [route]="['login']" >Login</ibm-header-item>
     </ng-container>
-
-    <ng-container *ngIf="user">
-      <ibm-header-item [route]="['shopping']" >Cart</ibm-header-item>
-    </ng-container>
  
   <ng-container>
     <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
@@ -30,7 +26,7 @@
     <ibm-header-action title="action" (click)="toggleSearch()">
       <svg ibmIcon="search" size="20"></svg>
     </ibm-header-action>
-    <ng-container *ngIf="user">
+    <ng-container >
       <ibm-header-action title="action" [routerLink]="['shopping']">
         <svg ibmIcon="shopping--cart" size="20"></svg>
       </ibm-header-action>
