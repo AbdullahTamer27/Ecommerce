@@ -24,11 +24,11 @@ export class HeaderComponent {
 
   user: any;
   userData: any;
-  SearchForm :FormGroup;
+  SearchForm: FormGroup;
   isSearchActive: boolean = false;
 
 
-  constructor(protected iconService: IconService, private authService: AuthService,fb:FormBuilder, private router:Router, private productService:ProductService) {
+  constructor(protected iconService: IconService, private authService: AuthService, fb: FormBuilder, private router: Router, private productService: ProductService) {
     /*
     let userString = localStorage.getItem('userKey');
     if(userString != null){
@@ -37,12 +37,12 @@ export class HeaderComponent {
     }
     */
     this.SearchForm = fb.group({
-      search:['',[Validators.required],[]]
+      search: ['', [Validators.required], []]
     })
 
 
-    this.authService.getLoggedInName.subscribe(user =>  this.user=user);
-    
+    this.authService.getLoggedInName.subscribe(user => this.user = user);
+
   }
 
   @HostBinding('class.cds--header') headerClass = true;
@@ -55,12 +55,13 @@ export class HeaderComponent {
     this.isSearchActive = !this.isSearchActive;
   }
 
-  search(form:any){
+  search(form: any) {
     console.log(form.value);
     const myInput = document.getElementById("header-search") as HTMLInputElement;
-    myInput.value = ""; 
-    this.productService.search(form);
+    this.productService.isSearch = true;
     this.router.navigate(['/home']);
+    this.productService.search(form);
+    myInput.value = "";
   }
 
   logOut() {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PortService } from './services/port/port.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private portService: PortService) {
+    this.portService.getPort();
+  }
   title = 'carbon-angular-tutorial';
 }

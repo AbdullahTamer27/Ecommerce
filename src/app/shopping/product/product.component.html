@@ -9,16 +9,19 @@
         <div class="col-md-8">
             <div class="imgContainer">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXehgAJXb9wL4dVDREKbaXOyW_IaCxiBzpuA&usqp=CAU" alt="">
+                    <img [src]="product.imageUrl" alt="">
                 </div>
             </div>
         </div>
         <div class="col-md-4">    
             <div>
                 <div class="info">
-                    <h1 class="heading">Product Name</h1>
-                    <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dolorum possimus amet reprehenderit, sed dignissimos nemo voluptatem illum rem pariatur ex modi iure ut rerum vero! Rerum, fugiat! Totam, repellendus?</p>
-                    <div class="productPrice">99.99$</div>
+                    <h1 class="heading">{{product.name}}</h1>
+                    <p class="txt">{{product.description}}</p>
+                    <div class="txt">{{product.quantity}}</div>
+                    <div class="txt">{{product.productType}}</div>
+                    <div class="txt">{{product.category}}</div>
+                    <div class="productPrice">{{product.price}}$$</div>
                 </div>
                 <hr>
                 <div class="rating"> 

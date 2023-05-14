@@ -1,38 +1,40 @@
-<ibm-header [brand]="''"  name="Retro Avenue">
+<ibm-header [brand]="''" name="Retro Avenue">
   <ibm-header-navigation ariaLabel="Carbon Tutorial Angular">
-    <ibm-header-item [route]="['home']" >Home</ibm-header-item>
+    <ibm-header-item [route]="['home']">Home</ibm-header-item>
     <ng-container *ngIf="!user">
-      <ibm-header-item [route]="['login']" >Login</ibm-header-item>
+      <ibm-header-item [route]="['login']">Login</ibm-header-item>
     </ng-container>
- 
-  <ng-container>
-    <ibm-header-item [route]="['admin']" >Admin</ibm-header-item>
-  </ng-container>
-    <ng-container >
-     <ibm-header-menu title="User Name">
-       <ibm-header-item [route]="['shopping/my-orders']" >My Orders</ibm-header-item>
-       <ibm-header-item [route]="['shopping/manage-orders']" >Manage Orders</ibm-header-item>
-       <ibm-header-item [route]="['myAccount']" >My Account</ibm-header-item>
-       <ibm-header-item [route]="['/']" (click)="logOut()" >Logout</ibm-header-item>
+    <ng-container *ngIf="user">
+      <ng-container *ngIf="user.admin">
+        <ibm-header-item [route]="['admin']">Admin</ibm-header-item>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="user">
+      <ibm-header-menu [title]="user.firstName">
+        <ibm-header-item [route]="['shopping/my-orders']">My Orders</ibm-header-item>
+        <ibm-header-item [route]="['shopping/manage-orders']">Manage Orders</ibm-header-item>
+        <ibm-header-item [route]="['myAccount']">My Account</ibm-header-item>
+        <ibm-header-item [route]="['/']" (click)="logOut()">Logout</ibm-header-item>
       </ibm-header-menu>
     </ng-container>
   </ibm-header-navigation>
   <ibm-header-global>
-    <ng-container  *ngIf="isSearchActive">
+    <ng-container *ngIf="isSearchActive">
       <form [formGroup]="SearchForm" id="SearchForm" class="bx--header__search--form">
-        <input class="form-control" formControlName="search" id="header-search" class="bx--header__search--input" type="text" placeholder="Search" (keydown.enter)='search(SearchForm)'  required>
+        <input class="form-control" formControlName="search" id="header-search" class="bx--header__search--input"
+          type="text" placeholder="Search" (keydown.enter)='search(SearchForm)' required>
       </form>
     </ng-container>
     <ibm-header-action title="action" (click)="toggleSearch()">
       <svg ibmIcon="search" size="20"></svg>
     </ibm-header-action>
-    <ng-container >
+    <ng-container>
       <ibm-header-action title="action" [routerLink]="['shopping']">
         <svg ibmIcon="shopping--cart" size="20"></svg>
       </ibm-header-action>
     </ng-container>
 
-    
+
 
   </ibm-header-global>
 </ibm-header>

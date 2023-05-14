@@ -22,6 +22,7 @@ import { ProductService } from './services/products/product.service';
 import { CategoryService } from './services/category/category.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { PortService } from './services/port/port.service';
 
 
 @NgModule({
@@ -40,19 +41,20 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-    
+
   ],
   providers: [
     AuthService,
     AuthGuardService,
     ProductService,
-    CategoryService
+    CategoryService,
+    PortService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(){
+  constructor() {
 
-    
+
   }
- }
+}

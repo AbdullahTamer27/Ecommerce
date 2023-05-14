@@ -17,7 +17,12 @@ export class NewOrderComponent {
   private categoriesSubscription: Subscription = new Subscription;
   
   constructor(private categoryService: CategoryService, private productService : ProductService, private router : Router) { 
-    this.getCategories();
+    this.categories = [
+      {name:"Electronics"},
+      {name:"Art"},
+      {name:"Music"},
+      {name:"Accessories"}
+    ];
   }
  
   
@@ -27,6 +32,7 @@ export class NewOrderComponent {
   }
 
   save(product:any){
+    console.log(product);
     this.productService.create(product);
     this.router.navigate(['/home']);
     

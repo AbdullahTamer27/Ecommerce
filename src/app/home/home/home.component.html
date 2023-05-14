@@ -1,5 +1,4 @@
-
-
+<br>
 <br>
 <br>
 <br>
@@ -8,7 +7,21 @@
     <h1 class="heading">Store.</h1>
     <h1 class="subheading">The best way to buy the products you love.</h1>
 </div>
-
+<div class="row" >
+    <div class="col-md-3"> 
+        <button class="filterbtn" (click)="displaysort()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="col-md-9">
+        <div *ngIf="sorting">
+            
+            <button>Click me</button>
+        </div>
+    </div>     
+</div>
 <div class="row">
     <div class="mylist">
         <div  *ngFor="let c of categories">
@@ -16,6 +29,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-1">
         
@@ -27,11 +41,11 @@
                     <div class="card" >
                         <div class="imgbox" (click)="view(p.id)">
                             <div class="img" >
-                                <img [src]="p.imageurl">
+                                <img [src]="p.imageUrl">
                             </div>
                         </div>
                         <div class="details">
-                            <h2 class="title">{{p.title}}</h2>
+                            <h2 class="title">{{p.name}}</h2>
                             <span class="caption">{{p.price | currency:'USD'}}</span>
                             <button class="btn btn-warning" (click)="addItemToCart(p)">add to cart</button>
                         </div>
@@ -46,4 +60,3 @@
     </div>
 </div>
 <br>
-

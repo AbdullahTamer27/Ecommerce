@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { PortService } from 'src/app/services/port/port.service';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -13,44 +14,63 @@ export class HomeComponent {
 
   products: any = [];
   categories: any = [];
+  sorting = false;
 
 
 
 
-    constructor(private productService:ProductService, categoryService:CategoryService, private route:Router){
-      this.getProducts();
+  constructor(private portService: PortService, private productService: ProductService, categoryService: CategoryService, private route: Router) {
+
+    this.productService.getProducts.subscribe(products => this.products = products);
 
     this.categories = [
-      {name:"Electronics"},
-      {name:"Art"},
-      {name:"Music"},
-      {name:"Historical"}
+      { name: "All" },
+      { name: "art" },
+      { name: "accessories" },
+      { name: "music" },
+      { name: "electronics" }
     ];
 
+    if (!portService.port) {
+      this.route.navigate(['/']);
+    }
+
+    if (!this.productService.isSearch) {
+      this.getProducts();
+    } else {
+      this.productService.isSearch = false;
+    }
   }
 
 
-  getCategories(){
+  getCategories() {
 
   }
 
-  getProducts(){
-    this.products = this.productService.getAll();
+  getProducts() {
+    this.productService.getAll();
   }
 
-  sort(category:string){
-    
+  sort(category: string) {
+    if (category == "All") {
+      this.productService.getAll();
+    } else {
+      this.productService.getByCategory(category);
+    }
   }
 
-  addItemToCart(product:any){
+  displaysort() {
+    this.sorting = !this.sorting
+    // console.log(this.sorting)
+  }
+
+  addItemToCart(product: any) {
 
   }
 
-  view(productId:any){
+  view(productId: any) {
     //this.productService.get(productId);
-    this.route.navigate(['shopping/product',productId]);
+    this.route.navigate(['shopping/product', productId]);
   }
 
 }
-
-
