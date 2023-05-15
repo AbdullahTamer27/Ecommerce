@@ -9,6 +9,7 @@ import { NewOrderComponent } from './new-order/new-order.component';
 import { FormsModule } from '@angular/forms';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateOrderComponent } from './update-order/update-order.component';
 
 
 
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     OrderValidateComponent,
     NewOrderComponent,
     ManageOrdersComponent,
+    UpdateOrderComponent,
   ],
   imports: [
     CommonModule,

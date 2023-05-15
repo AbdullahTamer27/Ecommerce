@@ -58,7 +58,6 @@ export class ProductService {
         // console.log(response.data);
         this.products = response.data;
         this.getProducts.emit(this.products);
-
       })
       .catch(error => {
 
@@ -68,6 +67,25 @@ export class ProductService {
       localStorage.setItem("userKey", JSON.stringify(this.user));
       this.router.navigate(['/home']);
     */
+  }
+
+
+  getProductBySellerId(sellerID: any) {
+    axios.post(`http://localhost:${this.portService.port}/product/getByUserID`,
+      {
+        sellerID: sellerID
+      }, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+      .then(response => {
+        this.products = response.data;
+        this.getProducts.emit(this.products);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 
@@ -117,8 +135,18 @@ export class ProductService {
 
   }
 
-  update(productId: string, product: any) {
-    axios.post(`http://localhost:${this.portService.port}/product/`, product, {
+  update(product: any, productId: any) {
+    axios.post(`http://localhost:${this.portService.port}/product/update`,
+      {
+        productId: productId,
+        category: product.category,
+        name: product.name,
+        imageUrl: product.imageUrl,
+        price: product.price,
+        description: product.description,
+        productType: product.productType,
+        quantity: product.quantity
+      }, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
@@ -138,18 +166,21 @@ export class ProductService {
 
   }
 
-  delete(productId: string) {
+  delete(productId: any) {
 
-    axios.post(`http://localhost:${this.portService.port}/product/`, productId, {
+    axios.post(`http://localhost:${this.portService.port}/product/remove`,
+      {
+        productId: productId
+      }, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
       .then(response => {
-        return response.data;
+        console.log(response.data)
       })
       .catch(error => {
-
+        console.log(error)
       });
 
     /* Local Storage Code
@@ -183,5 +214,23 @@ export class ProductService {
     this.router.navigate(['/home']);
   */
 
+  }
+
+  filterByPrice(value: any) {
+    axios.post(`http://localhost:${this.portService.port}/product/filterByPrice`,
+      {
+        value: value
+      }, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+      .then(response => {
+        console.log(response);
+        this.getProducts.emit(response.data);
+      })
+      .catch(error => {
+        alert("asfgrhrtshtaewgkbhdskhg");
+      });
   }
 }

@@ -3,68 +3,103 @@
 <br>
 <br>
 <div ibmGrid class="cds--grid--full-width landing-page">
-    <div ibmRow class="landing-page__banner">
-        <div ibmCol [columnNumbers]="{'lg': 16}">
-          <h1 class="landing-page__heading" class="mytext" >Hey Admin</h1>
-        </div>
-        
-    </div>
-    <div ibmRow class="landing-page__r2">
-      <div ibmCol class="cds--no-gutter">
-        <ibm-tabs class="Tabs">  
-            <ibm-tab class="mytab" heading="Manage Users" class="mytext" >
-                <table class="rwd-table">
-                    <thead>
-                      <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-
-                <button class="btn btn-primary" (click)="editUser()">Edit</button>
-                <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-            </ibm-tab>
-          
-            <ibm-tab class="mytab" heading="Manage Products"  >
-                <table class="rwd-table">
-                    <thead>
-                      <tr>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Rate</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let p of products">
-                        <td>{{ p.name }}</td>
-                        <td>{{ p.price }}</td>
-                        <td>{{ p.rate }}</td>
-                        <td>
-                            <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </ibm-tab>
-        </ibm-tabs>
-      </div>
-    </div>
+  <div ibmRow class="landing-page__banner">
+    <div ibmCol [columnNumbers]="{'lg': 16}">
+      <h1 class="landing-page__heading" class="mytext">Hey Admin</h1>
     </div>
 
-    <div ibmRow class="landing-page__r3">
-      
+  </div>
+  <div ibmRow class="landing-page__r2">
+    <div ibmCol class="cds--no-gutter">
+      <ibm-tabs class="Tabs">
+        <ibm-tab class="mytab" heading="Manage Users" class="mytext">
+          <table class="rwd-table">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteUser(user.id)">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </ibm-tab>
+
+        <ibm-tab class="mytab" heading="Latest Transactions">
+          <table class="rwd-table">
+            <thead>
+              <tr>
+                <th>Transaction ID</th>
+                <th>Price</th>
+                <th>Date Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of transactions">
+                <td>{{ t.id }}</td>
+                <td>{{ t.price }}</td>
+                <td>{{ t.createdAt }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ibm-tab>
+        <ibm-tab class="mytab" heading="Best Sellers">
+          <table class="rwd-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Total Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let b of bestSellers">
+                <td>{{ b.name }}</td>
+                <td>{{ b.quantity }}</td>
+                <td>{{ b.quantity * b.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ibm-tab>
+        <ibm-tab class="mytab" heading="Manage Products">
+          <table class="rwd-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Rate</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of products">
+                <td>{{ p.name }}</td>
+                <td>{{ p.price }}</td>
+                <td>{{ p.rate }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="delete(p.id)">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ibm-tab>
+
+      </ibm-tabs>
     </div>
+  </div>
+</div>
+
+<div ibmRow class="landing-page__r3">
+
+</div>

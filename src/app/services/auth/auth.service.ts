@@ -14,11 +14,27 @@ import { PortService } from '../port/port.service';
 export class AuthService {
 
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+  @Output() getUsersList: EventEmitter<any> = new EventEmitter();
 
   user: any;
 
-  constructor(private router: Router, private location: Location, private portService: PortService) {
-    console.log(this.portService.port);
+  constructor(private router: Router, private location: Location, private portService: PortService) { }
+
+
+  getAllUsers() {
+    axios.get(`http://localhost:${this.portService.port}/user/getAll`,
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .then(response => {
+        console.log(response.data);
+        this.getUsersList.emit(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   login(form: any) {
@@ -97,6 +113,25 @@ export class AuthService {
         this.getLoggedInName.emit(this.user);
         this.router.navigate(['/home']);
 
+      })
+      .catch(error => {
+        console.log(error)
+        alert("There was an error deleting your account");
+      });
+  }
+
+
+  deleteUser(userId: any) {
+    axios.post(`http://localhost:${this.portService.port}/user/delete`,
+      {
+        id: userId
+      }
+      , {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .then(response => {
       })
       .catch(error => {
         console.log(error)

@@ -1,92 +1,58 @@
 <br>
 <br>
 <div class="row">
-    <h1 class="page-heading">Manage Your Products Shop Now</h1>
-    <p class="page-text">In this Section you can manage your products with ease, feel free to add, update or delete any product you have for sale</p>
+  <h1 class="page-heading">Manage Your Products Shop Now</h1>
+  <p class="page-text">In this Section you can manage your products with ease, feel free to add, update or delete any
+    product you have for sale</p>
 </div>
 <div class="row">
-    <div class="col-md-2">
+  <div class="col-md-2">
 
+  </div>
+  <div class="col-md-10">
+    <p>
+      <button type="button" class="btn cube cube-hover" routerLink="/shopping/new">
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="text">Add A New Product</div>
+      </button>
+
+    </p>
+    <div>
+      <table class="rwd-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Rate</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.rate }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="edit(p.id)">Edit</button>
+              <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="col-md-10">
-        <p>
-          <button type="button" class="btn cube cube-hover" routerLink="/shopping/new">
-            <div class="bg-top">
-            <div class="bg-inner"></div>
-            </div>
-            <div class="bg-right">
-            <div class="bg-inner"></div>
-            </div>
-            <div class="bg">
-            <div class="bg-inner"></div>
-            </div>
-            <div class="text">Add A New Product</div>
-          </button>
-            
-        </p>
-        <div *ngIf="products.length===0">
-            <p class="page-text-empty">The Products You sell Appear Here</p>
 
 
-        <table class="rwd-table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Rate</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-    <div *ngIf="products.length > 0">
-        <table class="rwd-table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Rate</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let p of products">
-              <td>{{ p.title }}</td>
-              <td>{{ p.price }}</td>
-              <td>{{ p.rate }}</td>
-              <td>
-                <button class="btn btn-primary" (click)="edit(p.id)">Edit</button>
-                <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-        
-    </div>
+  </div>
 
 </div>
 
 
-<div ></div>
-  
-
-
-  
-  
-  
-  
+<div></div>

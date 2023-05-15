@@ -1,0 +1,73 @@
+<br>
+
+<div class="row">
+    <h1 class="page-heading">Update this Product</h1>
+    <p class="page-text">In this Section you can update your existing product for sale, you can checkon the right the image you are choosing to represent your product be sure to fill the whole form</p>
+</div>
+<div class="row">
+    <div class="col-md-6">
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input #title = "ngModel" [(ngModel)]="product.name" name="title" id="title" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">this field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                $
+            </span>
+            <input #price = "ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">this field is required</div>
+</div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select #cat="ngModel" [(ngModel)]="product.category" name="category" id="category" type="text" class="form-control" required>
+            <option value=""></option>
+            <option *ngFor="let c of categories " [value]="c.name">{{c.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="cat.touched && cat.invalid">this field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL</label>
+        <input #imageUrl = "ngModel" [(ngModel)]="product.imageUrl" name="image" id="image" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">this field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="image">Description</label>
+        <input #description = "ngModel" [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="description.touched && description.invalid">this field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Quantity</label>
+        <input #quantity = "ngModel" [(ngModel)]="product.quantity" name="quantity" id="quantity" type="number" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">this field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Type</label>
+        <input #productType = "ngModel" [(ngModel)]="product.productType" name="productType" id="productType" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="productType.touched && productType.invalid">this field is required</div>
+    </div>
+
+    <button class="btn btn-primary">Save</button> 
+</form>
+</div>
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="imageUrl.value">
+            <div class="card-body">
+              <h5 class="card-title">{{title.value}}</h5>
+              <p class="card-text">{{price.value | currency:'USD'}}</p>
+              <p class="card-text">{{description.value}}</p>
+              <p class="card-text">{{quantity.value}}</p>
+              <p class="card-text">{{productType.value}}</p>
+              <p class="card-text">{{cat.value}}</p>
+              <button class="btn btn-primary" >Add to Cart</button>
+            </div>
+          </div>
+    </div>
+</div>
