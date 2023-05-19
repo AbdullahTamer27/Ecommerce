@@ -41,7 +41,9 @@ export class HeaderComponent {
     })
 
 
-    this.authService.getLoggedInName.subscribe(user => this.user = user);
+    this.authService.getLoggedInName.subscribe(user => {
+      this.user = user;
+    });
 
   }
 

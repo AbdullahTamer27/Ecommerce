@@ -7,6 +7,7 @@ import { NewOrderComponent } from './new-order/new-order.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { ProductComponent } from './product/product.component';
 import { UpdateOrderComponent } from './update-order/update-order.component';
+import { BalanceComponent } from './balance/balance.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,10 @@ const routes: Routes = [
     path:'product/:id',
     component:ProductComponent
   },
-  
+  {
+    path:'cash',
+    component: BalanceComponent
+  },
 
 ];
 

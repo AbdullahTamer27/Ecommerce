@@ -146,10 +146,7 @@ export class AuthService {
   logout() {
     this.user = null;
     this.getLoggedInName.emit(this.user);
-
   }
-
-
 
   signup(form: any) {
     axios.post(`http://localhost:${this.portService.port}/user/sign-up`, {
@@ -175,9 +172,36 @@ export class AuthService {
 
         alert("We Could not Sign You up please try again");
       });
-
   }
 
+  addToCash(form: any, userId: any) {
+    axios.post(`http://localhost:${this.portService.port}/user/addToBalance`,
+      {
+        id: userId,
+        cash: form.cash
+      }
+      , {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .then(response => {
+        this.user.cash = response.data.cash;
+        this.getLoggedInName.emit(this.user);
+        this.router.navigate(['/home']);
 
+      })
+      .catch(error => {
+        console.log(error)
+        alert("There was an error updating your information");
+      });
+  }
+
+  
+
+  updateBalance(balance: any) {
+    this.user.cash = balance;
+    this.getUser();
+  }
 
 }

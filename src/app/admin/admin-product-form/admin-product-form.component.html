@@ -5,10 +5,24 @@
 <div ibmGrid class="cds--grid--full-width landing-page">
   <div ibmRow class="landing-page__banner">
     <div ibmCol [columnNumbers]="{'lg': 16}">
-      <h1 class="landing-page__heading" class="mytext">Hey Admin</h1>
+      <h1 class="landing-page__heading" class="heading">Admin Reports</h1>
     </div>
-
   </div>
+  <div ibmGrid class="cds--grid--full-width landing-page">
+    <button type="button" class="btn cube cube-hover" (click)="printReport()">
+    <div class="bg-top">
+    <div class="bg-inner"></div>
+    </div>
+    <div class="bg-right">
+    <div class="bg-inner"></div>
+    </div>
+    <div class="bg">
+    <div class="bg-inner"></div>
+    </div>
+    <div class="text">Generate Reports</div>
+  </button>
+  </div>
+  
   <div ibmRow class="landing-page__r2">
     <div ibmCol class="cds--no-gutter">
       <ibm-tabs class="Tabs">
@@ -78,7 +92,6 @@
               <tr>
                 <th>Title</th>
                 <th>Price</th>
-                <th>Rate</th>
                 <th></th>
               </tr>
             </thead>
@@ -86,7 +99,6 @@
               <tr *ngFor="let p of products">
                 <td>{{ p.name }}</td>
                 <td>{{ p.price }}</td>
-                <td>{{ p.rate }}</td>
                 <td>
                   <button class="btn btn-danger" (click)="delete(p.id)">Remove</button>
                 </td>

@@ -4,6 +4,14 @@
 
 $breakpoint-alpha: 480px;
 
+.heading{
+
+  font-size: 3em;
+  font-weight: bold;
+  margin-top: 50px;
+  color: #fff; 
+  width: 75%;
+}
 
 .mytext{
   color: #fff;
@@ -11,7 +19,7 @@ $breakpoint-alpha: 480px;
 ibm-tab .bx--tabs__nav-link {
   color: white;
 }
-ibm-tab .bx--tabs__nav-link.bx--tabs__nav-link--selected {
+ibm-tab .bx--tabs_nav-link.bx--tabs_nav-link--selected {
   color: white;
 }
 :host ::ng-deep .bx--tabs__nav-link {
@@ -263,4 +271,3 @@ ibm-tab .bx--tabs__nav-link.bx--tabs__nav-link--selected {
      transform: scale(0.9);
     }
    }
-  

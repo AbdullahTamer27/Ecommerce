@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { deleteUser } from 'firebase/auth';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -17,7 +17,7 @@ export class AdminProductFormComponent {
   transactions: any;
   bestSellers: any;
 
-  constructor(private cartService: CartService, private authService: AuthService, private productService: ProductService, private route: Router) {
+  constructor(private renderer: Renderer2, private cartService: CartService, private authService: AuthService, private productService: ProductService, private route: Router) {
     this.productService.getProducts.subscribe(products => this.products = products);
     this.productService.getAll();
     this.authService.getUsersList.subscribe(users => this.users = users);
@@ -28,6 +28,10 @@ export class AdminProductFormComponent {
     this.cartService.getBestsellers();
   }
 
+  printReport() {
+    // Trigger the "Ctrl+P" shortcut to print the page
+    window.print();
+  }
 
   edit(productId: number) {
   }

@@ -98,8 +98,7 @@ export class CartService {
     })
       .then(response => {
         console.log(response.data)
-        this.products = response.data;
-        this.getProducts.emit(this.products);
+        this.authService.updateBalance(response.data.cashBalance);
       })
       .catch(error => {
         console.log(error)

@@ -11,7 +11,7 @@
     </ng-container>
     <ng-container *ngIf="user">
       <ibm-header-menu [title]="user.firstName">
-        <ibm-header-item [route]="['shopping/my-orders']">My Orders</ibm-header-item>
+        <ibm-header-item [route]="['shopping/cash']">Cash Balance: ${{user.cash}}</ibm-header-item>
         <ibm-header-item [route]="['shopping/manage-orders']">Manage Orders</ibm-header-item>
         <ibm-header-item [route]="['myAccount']">My Account</ibm-header-item>
         <ibm-header-item [route]="['/']" (click)="logOut()">Logout</ibm-header-item>
@@ -29,7 +29,7 @@
       <svg ibmIcon="search" size="20"></svg>
     </ibm-header-action>
     <ng-container>
-      <ibm-header-action title="action" [routerLink]="['shopping']">
+      <ibm-header-action *ngIf="user" title="action" [routerLink]="['shopping']">
         <svg ibmIcon="shopping--cart" size="20"></svg>
       </ibm-header-action>
     </ng-container>

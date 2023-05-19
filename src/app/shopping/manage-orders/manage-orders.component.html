@@ -1,7 +1,7 @@
 <br>
 <br>
 <div class="row">
-  <h1 class="page-heading">Manage Your Products Shop Now</h1>
+  <h1 class="page-heading">Manage Your Products</h1>
   <p class="page-text">In this Section you can manage your products with ease, feel free to add, update or delete any
     product you have for sale</p>
 </div>
@@ -39,7 +39,7 @@
           <tr *ngFor="let p of products">
             <td>{{ p.name }}</td>
             <td>{{ p.price }}</td>
-            <td>{{ p.rate }}</td>
+            <td>0</td>
             <td>
               <button class="btn btn-primary" (click)="edit(p.id)">Edit</button>
               <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>

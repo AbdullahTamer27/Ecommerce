@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateOrderComponent } from './update-order/update-order.component';
+import { BalanceComponent } from './balance/balance.component';
 
 
 
@@ -22,6 +23,7 @@ import { UpdateOrderComponent } from './update-order/update-order.component';
     NewOrderComponent,
     ManageOrdersComponent,
     UpdateOrderComponent,
+    BalanceComponent,
   ],
   imports: [
     CommonModule,
